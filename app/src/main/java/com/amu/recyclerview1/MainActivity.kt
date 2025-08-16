@@ -2,6 +2,7 @@ package com.amu.recyclerview1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -26,5 +27,21 @@ class MainActivity : AppCompatActivity() {
         adapter = RecyclerAdapter()
         recyclerView.adapter = adapter
 
+        setSwipeToDelete()
+    }
+
+    private fun setSwipeToDelete() {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove( recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false // No move operation needed
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                // Handle swipe to delete
+                val position = viewHolder.adapterPosition
+                (adapter as? RecyclerAdapter)?.removeItem(position)
+                adapter?.notifyItemRemoved(position)
+            }
+        }).attachToRecyclerView(findViewById(R.id.recyclerView))
     }
 }

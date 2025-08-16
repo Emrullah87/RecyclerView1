@@ -11,20 +11,20 @@ import androidx.recyclerview.widget.RecyclerView
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     //Für die Daten
-    private var titles = arrayOf(
+    private var titles = mutableListOf(
         "Chapter one", "Chapter two", "Chapter three",
         "Chapter four", "Chapter five", "Chapter six", "Chapter seven",
         "Chapter eight", "Chapter nine", "Chapter ten"
     )
 
-    private var details = arrayOf(
+    private var details = mutableListOf(
         "Details for chapter one", "Details for chapter two",
         "Details for chapter three", "Details for chapter four", "Details for chapter five",
         "Details for chapter six", "Details for chapter seven", "Details for chapter eight",
         "Details for chapter nine", "Details for chapter ten"
     )
 
-    private var images = intArrayOf(
+    private var images = mutableListOf(
         R.drawable.andro,
         R.drawable.andro,
         R.drawable.andro,
@@ -74,6 +74,13 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             }
 
         }
+    }
+
+    fun removeItem(position: Int) {
+        titles.removeAt(position)
+        details.removeAt(position)
+        images.removeAt(position)
+        notifyItemRemoved(position)
     }
 
 }
