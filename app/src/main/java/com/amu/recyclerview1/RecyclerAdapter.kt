@@ -37,7 +37,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         R.drawable.andro
     )
 
-    //Was genau passiert hier?
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         //Hier werden die einzelnen UI-Elemente für die RecyclerView erstellt.
         //Das LayoutInflater-Objekt wird verwendet, um das XML-Layout in ein View-Objekt zu konvertieren.
