@@ -24,16 +24,16 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     )
 
     private var images = intArrayOf(
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro,
-        R.drawable.Andro
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro,
+        R.drawable.andro
     )
 
     //Was genau passiert hier?

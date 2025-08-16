@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         layoutManager = LinearLayoutManager(this)
 
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = layoutManager
+
+        adapter = RecyclerAdapter()
+        recyclerView.adapter = adapter
 
     }
 }
