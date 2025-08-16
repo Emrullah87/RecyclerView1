@@ -7,7 +7,34 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
+    //Für die Daten
+    private var titles = arrayOf(
+        "Chapter one", "Chapter two", "Chapter three",
+        "Chapter four", "Chapter five", "Chapter six", "Chapter seven",
+        "Chapter eight", "Chapter nine", "Chapter ten"
+    )
+
+    private var details = arrayOf(
+        "Details for chapter one", "Details for chapter two",
+        "Details for chapter three", "Details for chapter four", "Details for chapter five",
+        "Details for chapter six", "Details for chapter seven", "Details for chapter eight",
+        "Details for chapter nine", "Details for chapter ten"
+    )
+
+    private var images = intArrayOf(
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro,
+        R.drawable.Andro
+    )
 
     //Was genau passiert hier?
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
@@ -20,14 +47,18 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     //Für unsere Daten. Dafür müssen wir die Datenquelle definieren, z.B. eine Liste von Objekten.
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        //Es befüllt die Daten in die einzelnen UI-Elemente, die wir im ViewHolder definiert haben.
+        holder.itemTitle.text = titles[position]
+        holder.itemDetail.text = details[position]
+        holder.itemImage.setImageResource(images[position])
     }
 
+    //Hier wird die Anzahl der Elemente in der RecyclerView zurückgegeben. Wie viele Elemente wir haben für den Holder
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return titles.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var itemImage: ImageView
         var itemTitle: TextView
         var itemDetail: TextView
